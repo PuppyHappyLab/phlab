@@ -22,4 +22,7 @@ jobs:
 
   build-site:
     needs: update-citations
+    # The first push skips citations. A skipped dependency would otherwise
+    # skip this job too, so the site would never be built.
+    if: always() && (needs.update-citations.result == 'success' || needs.update-citations.result == 'skipped')
     uses: ./.github/workflows/build-site.yaml
