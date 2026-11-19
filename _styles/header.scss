@@ -1,0 +1,250 @@
+---
+---
+
+$big-padding: 60px;
+$collapse: 700px;
+$sticky: true;
+$page: 1000px;
+$side: 40px;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px max($side, calc((100% - $page) / 2));
+  background: #000000;
+  color: #ffffff;
+  box-shadow: var(--shadow);
+
+  @if $sticky {
+    position: sticky !important;
+    top: 0;
+    z-index: 10 !important;
+  }
+}
+
+header a,
+header a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.home {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.logo {
+  flex: none;
+  height: calc((var(--large) * var(--compact) + 2px + 1rem * var(--compact)) * 0.75);
+}
+
+.logo > * {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+.title-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2px;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  line-height: var(--compact);
+  font-family: var(--title);
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-character;
+}
+
+.title {
+  font-family: var(--brand);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: var(--thin);
+}
+
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  color: #ffffff;
+  appearance: none;
+  transition: background var(--transition);
+}
+
+.nav-toggle:after {
+  content: "\f0c9";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  transform: translate(-50%, -50%);
+}
+
+.nav-toggle:checked:after {
+  content: "\f00d";
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  font-family: var(--heading);
+  font-size: 1rem;
+}
+
+nav > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 0;
+  line-height: 1.15;
+  transition: transform var(--transition);
+}
+
+.nav-en,
+.nav-zh {
+  font-size: 1rem;
+}
+
+.nav-en {
+  font-family: var(--brand);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-zh {
+  font-family: var(--title);
+  font-weight: var(--thin);
+}
+
+nav > a:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+header:not([data-big]) nav {
+  align-self: center;
+  gap: 48px;
+}
+
+header:not([data-big]) nav > a {
+  gap: 2px;
+  line-height: var(--compact);
+}
+
+header:not([data-big]) {
+  @media (max-width: $collapse) {
+    justify-content: flex-end;
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-toggle:not(:checked) + nav {
+      display: none;
+    }
+
+    nav {
+      align-items: flex-end;
+      flex-direction: column;
+      width: 100%;
+      gap: 28px;
+    }
+  }
+}
+
+header[data-big] {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: $big-padding max($side, calc((100% - $page) / 2)) 28px;
+
+  @if $sticky {
+    top: unset;
+  }
+
+  .home {
+    display: block;
+    flex-grow: 0;
+    width: max-content;
+  }
+
+  .logo {
+    display: block;
+    width: 0;
+    min-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .logo > * {
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .title-text {
+    height: auto;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 16px;
+    justify-content: stretch;
+    gap: 32px;
+  }
+
+  nav > a {
+    flex: 1 1 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.45em;
+    min-width: 0;
+  }
+
+  @media (max-width: $collapse) {
+    nav {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+  }
+}

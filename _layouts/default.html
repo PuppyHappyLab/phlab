@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <main{% if page.nav and page.url != "/" %} data-nav{% endif %}>
+      {% include content.html content=content %}
+    </main>
+    {% include footer.html %}
+  </body>
+</html>

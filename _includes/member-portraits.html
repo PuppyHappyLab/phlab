@@ -1,0 +1,24 @@
+{% assign people = include.members
+  | default: ""
+  | join: ","
+  | downcase
+  | split: ","
+  | array_filter
+%}
+{% capture portraits %}
+{% for person in people %}
+  {% assign member = site.members
+    | where_exp: "member", "member.slug == person"
+    | first
+  %}
+  {% if member and member.image %}
+    {% include portrait.html lookup=person style="tiny" %}
+  {% endif %}
+{% endfor %}
+{% endcapture %}
+{% assign portraits = portraits | strip %}
+{% if portraits != "" %}
+<div class="post-info">
+  {{ portraits }}
+</div>
+{% endif %}

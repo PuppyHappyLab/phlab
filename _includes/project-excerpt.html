@@ -1,0 +1,54 @@
+{% comment %}{% endcomment %}
+<div class="post-excerpt-container">
+  <div class="post-excerpt project-excerpt">
+    {% assign url = include.url | relative_url | uri_escape %}
+    {% assign title = include.title %}
+    {% assign image = include.image | relative_url | uri_escape %}
+
+    {% if image %}
+      <a
+        href="{{ url }}"
+        class="post-excerpt-image"
+        aria-label="{{ title | default: "excerpt link" | regex_strip }}"
+      >
+        <img
+          src="{{ image }}"
+          alt="{{ title | default: "excerpt image" | regex_strip }}"
+          loading="lazy"
+          {% include fallback.html %}
+        >
+      </a>
+    {% endif %}
+
+    <div class="post-excerpt-text">
+      <a href="{{ url }}">{{ title }}</a>
+
+      {% if include.subtitle %}
+        <span class="project-excerpt-subtitle">{{ include.subtitle }}</span>
+      {% endif %}
+
+      {% include member-portraits.html members=include.members %}
+
+      {% assign excerpt = include.content
+        | default: ""
+        | regex_scan: "<!-- excerpt start -->(.*)<!-- excerpt end -->", true
+        | default: include.excerpt
+        | default: include.description
+        | default: ""
+        | strip_html
+      %}
+      {% assign search = include.content
+        | default: include.description
+        | default: ""
+        | strip_html
+        | strip_newlines
+        | regex_strip
+      %}
+      <p data-search="{{ search }}">
+        {{ excerpt }}
+      </p>
+
+      {% include tags.html tags=include.tags repo=include.repo link="projects" %}
+    </div>
+  </div>
+</div>

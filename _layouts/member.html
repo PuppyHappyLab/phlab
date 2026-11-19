@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="member-profile">
+  <div class="member-aside">
+    {% include portrait.html lookup=page.slug %}
+
+    <div class="member-links">
+      {% for link in page.links %}
+        {% assign key = link[0] %}
+        {% assign value = link[1] %}
+        {% include button.html type=key link=value style="bare" %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="member-content">
+    {{ content }}
+  </div>
+</div>
+
+{% capture search -%}
+  blog/?search={{ page.name }}
+{%- endcapture %}
+
+<!--
+<p class="center">
+  <a href="{{ search | relative_url | uri_escape }}">
+    See {{ page.name | default: page.title }}'s posts on the Blog page
+  </a>
+</p>
+-->

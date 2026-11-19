@@ -1,0 +1,37 @@
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler
+vendor/
+.bundle/
+
+# Python (citation scripts)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local env and logs
+.env*
+debug.log
+
+# This site is built with Jekyll, not npm
+package.json
+package-lock.json
+yarn.lock
+node_modules/
+
+# OS
+.DS_Store
+.DS_STORE
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors
+.idea/
+*.swp
+*~

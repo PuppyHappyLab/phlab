@@ -1,0 +1,97 @@
+---
+---
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 40px 0 20px 0;
+  font-family: var(--heading);
+  font-weight: var(--semi-bold);
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+h1 {
+  margin: 40px 0;
+  font-size: 1.6rem;
+  font-weight: var(--regular);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+main[data-nav] h1 {
+  margin: 0 0 40px;
+}
+
+h1.page-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  line-height: 1.15;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+h2 {
+  font-size: 1.6rem;
+  padding-bottom: 5px;
+  border-bottom: solid 1px var(--light-gray);
+  font-weight: var(--regular);
+}
+
+.member-content h2 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45em;
+  margin: 36px 0 16px;
+  padding: 0;
+  border-bottom: none;
+  font-family: var(--brand);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.member-content h2 .nav-zh {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.member-content h2 > .anchor {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 0.5em);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+:where(h1, h2, h3, h4, h5, h6) > .icon {
+  margin-right: 1em;
+  color: var(--light-gray);
+}

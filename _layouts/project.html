@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% include section.html background=page.image %}
+
+<h1 class="center">{{ page.title }}</h1>
+
+{% if page.subtitle %}
+<p class="center">{{ page.subtitle }}</p>
+{% endif %}
+
+{% include member-portraits.html members=page.members %}
+
+{% include tags.html tags=page.tags repo=page.repo link="projects" %}
+
+{% if page.link %}
+{%
+  include button.html
+  link=page.link
+  text="Open link"
+  icon="fa-solid fa-arrow-up-right-from-square"
+%}
+{% endif %}
+
+{% include section.html %}
+
+{{ content }}
