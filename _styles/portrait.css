@@ -1,0 +1,147 @@
+.portrait-wrapper {
+  display: contents;
+}
+
+.portrait {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  width: 175px;
+  max-width: calc(100% - 20px - 20px);
+  text-decoration: none;
+}
+
+.portrait[data-style=small] {
+  width: 100px;
+}
+
+main[data-nav] .portrait {
+  width: 120px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: center;
+  align-items: start;
+}
+
+.team-grid .portrait-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.team-grid .portrait {
+  justify-content: flex-start;
+}
+
+@media (max-width: 640px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.portrait[data-style=tiny] {
+  flex-direction: row;
+  gap: 15px;
+  width: unset;
+  text-align: left;
+}
+
+.portrait .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(20px + 10%);
+  aspect-ratio: 1/1;
+  border-radius: 999px;
+  background: var(--background);
+  box-shadow: var(--shadow);
+  transform: translate(14%, 14%);
+}
+
+.portrait[data-style=small] .icon {
+  left: -2px;
+  top: -2px;
+}
+
+.portrait[data-style=tiny] .icon {
+  display: none;
+}
+
+.portrait-image {
+  width: 100%;
+  margin-bottom: 20px;
+  aspect-ratio: 1/1;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.portrait[data-style=tiny] .portrait-image {
+  width: 50px;
+  margin: 0;
+}
+
+.portrait-name {
+  font-family: var(--heading);
+  font-weight: var(--semi-bold);
+}
+
+.member-profile {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  column-gap: 56px;
+  align-items: start;
+}
+
+.member-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.member-aside .portrait {
+  margin: 0;
+  width: 175px;
+  max-width: 100%;
+}
+
+.member-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.member-content {
+  min-width: 0;
+}
+
+.member-content > :first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 720px) {
+  .member-profile {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 28px;
+  }
+  .member-content {
+    width: 100%;
+  }
+}
+.portrait[data-style=tiny] .portrait-description,
+.portrait[data-style=tiny] .portrait-affiliation {
+  display: none;
+}
+
+/*# sourceMappingURL=portrait.css.map */

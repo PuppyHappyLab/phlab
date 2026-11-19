@@ -1,0 +1,33 @@
+.tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 100%;
+  margin: 20px 0;
+}
+
+.tag {
+  max-width: 100%;
+  margin: 0;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--light-gray);
+  color: var(--dark-gray);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: background var(--transition), color var(--transition);
+}
+
+.tag:hover,
+.tag[data-active] {
+  background: color-mix(in srgb, var(--gray) 45%, var(--light-gray));
+  color: var(--text);
+}
+
+/*# sourceMappingURL=tags.css.map */
