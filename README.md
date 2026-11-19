@@ -1,3 +1,5 @@
+Visit **[puppyhappylab.github.io/phlab](https://puppyhappylab.github.io/phlab)** 🚀
+
 # Puppy Happy Lab
 
 寵學實驗室网站。基于 [Lab Website Template](https://github.com/greenelab/lab-website-template)，用 Jekyll 构建。
