@@ -1,4 +1,4 @@
-Visit **[puppyhappylab.github.io/phlab](https://puppyhappylab.github.io/phlab)** 🚀
+Visit **[phl.archifrog.com](http://phl.archifrog.com)** 🚀
 
 # Puppy Happy Lab
 
