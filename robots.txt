@@ -1,1 +1,1 @@
-Sitemap: https://puppyhappylab.github.io/phlab/sitemap.xml
+Sitemap: http://phl.archifrog.com/sitemap.xml
